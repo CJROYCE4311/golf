@@ -4,7 +4,8 @@ window.mikiGolfData = {
   "handicap": {
     "index": null,
     "label": "Pending GHIN sync",
-    "latestDifferential": 24.9
+    "latestDifferential": 24.9,
+    "method": "At least 3 local differentials are needed for an estimate."
   },
   "latestRound": {
     "course": "Sterling Grove Golf & Country Club",

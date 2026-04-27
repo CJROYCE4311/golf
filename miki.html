@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miki Golf</title>
+  <meta name="description" content="Miki Golf performance dashboard with recent rounds, scoring patterns, and improvement priorities.">
+  <link rel="preload" href="assets/miki-golf-1.png" as="image">
+  <style>
+    :root {
+      --green-deep: #173726;
+      --green: #2f6f43;
+      --green-soft: #e7f0e7;
+      --sky: #6aa0b5;
+      --sky-soft: #e7f2f6;
+      --coral: #d77e68;
+      --coral-soft: #fae7e1;
+      --sand: #d8c38a;
+      --sand-soft: #f7f2df;
+      --ink: #17211d;
+      --muted: #65726d;
+      --line: #dce4df;
+      --paper: #fffdf7;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(23, 55, 38, 0.12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      padding: 0 22px;
+      color: var(--white);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0));
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .nav-pill {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      padding: 5px 11px;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--sand-soft);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 94svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--green-deep);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--hero-image);
+      background-size: cover;
+      background-position: center 24%;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(13, 30, 21, 0.95), rgba(13, 30, 21, 0.55) 42%, rgba(13, 30, 21, 0.05) 78%),
+        radial-gradient(circle at 18% 20%, rgba(106, 160, 181, 0.34), transparent 32%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 980px);
+      padding: 96px 22px 46px;
+    }
+
+    .eyebrow {
+      margin: 0 0 9px;
+      color: var(--coral);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+      font-family: var(--serif);
+      color: var(--green-deep);
+    }
+
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(3.6rem, 11vw, 7rem);
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin: 14px 0 24px;
+      color: #eaf1ec;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    .hero-round {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .hero-score {
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: clamp(3.1rem, 8vw, 5.2rem);
+      font-weight: 800;
+      line-height: 0.92;
+    }
+
+    .hero-meta {
+      padding-left: 16px;
+      border-left: 2px solid var(--sky);
+      color: #dbe8e1;
+    }
+
+    .hero-meta strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.98rem;
+    }
+
+    .hero-meta span {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.84rem;
+    }
+
+    .kpi-strip {
+      background: var(--green-deep);
+      color: var(--white);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      width: min(100%, 1120px);
+      margin: 0 auto;
+    }
+
+    .kpi {
+      min-height: 118px;
+      padding: 22px 14px;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+      text-align: center;
+    }
+
+    .kpi:last-child {
+      border-right: 0;
+    }
+
+    .kpi-value {
+      display: block;
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: clamp(1.55rem, 4vw, 2.25rem);
+      font-weight: 800;
+    }
+
+    .kpi-label {
+      display: block;
+      margin-top: 7px;
+      color: #b8d1c1;
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 58px 22px;
+    }
+
+    .section-title {
+      margin-bottom: 22px;
+      font-size: clamp(1.85rem, 4vw, 3rem);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-pad {
+      padding: 24px;
+    }
+
+    .round-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 22px 24px;
+      background: var(--green-deep);
+      color: var(--white);
+    }
+
+    .round-header h3 {
+      color: var(--white);
+      font-size: 1.35rem;
+    }
+
+    .tee-badge {
+      align-self: flex-start;
+      border-radius: 999px;
+      padding: 4px 11px;
+      background: var(--coral);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-row:last-child {
+      border-bottom: 0;
+    }
+
+    .detail-row dt {
+      color: var(--muted);
+    }
+
+    .detail-row dd {
+      margin: 0;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .photo-card {
+      min-height: 370px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 370px;
+      object-fit: cover;
+    }
+
+    .scorecard {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(42px, 1fr));
+      gap: 7px;
+      margin-top: 22px;
+    }
+
+    .hole-chip {
+      min-height: 60px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 7px;
+      background: var(--sand-soft);
+      text-align: center;
+    }
+
+    .hole-chip strong {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hole-chip span {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .hole-chip small {
+      color: var(--muted);
+      font-size: 0.68rem;
+    }
+
+    .bars {
+      display: grid;
+      gap: 15px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 5px;
+      font-size: 0.88rem;
+    }
+
+    .bar-track {
+      height: 12px;
+      border-radius: 999px;
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      width: var(--pct);
+      background: var(--color);
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-stat {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: var(--green-deep);
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .mini-stat span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dark-band {
+      background: var(--green-deep);
+      color: var(--white);
+    }
+
+    .dark-band h2,
+    .dark-band h3 {
+      color: var(--white);
+    }
+
+    .sg-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .sg-card {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .sg-value {
+      margin: 8px 0 13px;
+      color: var(--coral);
+      font-family: var(--serif);
+      font-size: 2.3rem;
+      font-weight: 850;
+    }
+
+    .sg-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+    }
+
+    .sg-fill {
+      width: var(--pct);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--coral);
+    }
+
+    .sg-note {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: #cbd8d0;
+    }
+
+    .priority-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .priority {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      background: var(--white);
+    }
+
+    .priority-num {
+      color: var(--coral);
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 850;
+    }
+
+    .priority h3 {
+      margin: 5px 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .priority-pill {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: var(--coral-soft);
+      color: #8f3f31;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      width: min(100%, 1240px);
+      margin: 0 auto;
+      padding: 0 10px 58px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .empty-trend {
+      border: 1px dashed #b6c5bd;
+      border-radius: 14px;
+      padding: 34px;
+      background: var(--green-soft);
+      text-align: center;
+    }
+
+    .footer {
+      padding: 28px 22px 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 920px) {
+      .kpi-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-two,
+      .sg-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        min-height: 88svh;
+      }
+
+      .hero-content {
+        padding-bottom: 34px;
+      }
+
+      .kpi-grid,
+      .mini-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .kpi {
+        min-height: 104px;
+      }
+
+      .section {
+        padding: 46px 18px;
+      }
+
+      .scorecard {
+        grid-template-columns: repeat(6, minmax(40px, 1fr));
+      }
+
+      .priority {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Page">
+    <a class="nav-logo" href="index.html">Miki Golf</a>
+    <div class="nav-pill" id="sampleBadge">Loading</div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Personal Performance Dashboard</p>
+      <h1>Miki Golf</h1>
+      <p class="hero-copy">Recent rounds, scoring patterns, and improvement priorities.</p>
+      <div class="hero-round">
+        <div class="hero-score" id="heroScore">--</div>
+        <div class="hero-meta">
+          <strong id="heroRound">No rounds yet</strong>
+          <span id="heroDetails">Add a tracked round to populate the dashboard.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="kpi-strip" aria-label="Key performance metrics">
+    <div class="kpi-grid" id="kpiGrid"></div>
+  </section>
+
+  <main>
+    <section class="section">
+      <p class="eyebrow">Latest Round</p>
+      <h2 class="section-title">Scorecard Snapshot</h2>
+      <div class="grid-two">
+        <article class="card" id="roundPanel"></article>
+        <aside class="card photo-card">
+          <img src="assets/miki-golf-4.png" alt="Miki golf page photo">
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Scoring Pattern</p>
+      <h2 class="section-title">Birdies, Pars, Bogeys</h2>
+      <div class="grid-two">
+        <article class="card card-pad">
+          <div class="bars" id="scoringBars"></div>
+        </article>
+        <article class="card card-pad">
+          <div class="mini-stats" id="shortGameStats"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Ball Striking</p>
+      <h2 class="section-title">Fairways And Greens</h2>
+      <div class="grid-two">
+        <article class="card card-pad">
+          <h3>Fairways</h3>
+          <p class="muted" id="fairwaySummary"></p>
+          <div class="bars" id="fairwayBars"></div>
+        </article>
+        <article class="card card-pad">
+          <h3>Greens In Regulation</h3>
+          <p class="muted" id="girSummary"></p>
+          <div class="bars" id="girBars"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="dark-band">
+      <div class="section">
+        <p class="eyebrow">Estimated</p>
+        <h2 class="section-title">Strokes Gained Style Leaks</h2>
+        <div class="sg-grid" id="sgGrid"></div>
+        <p class="sg-note">Estimated from hole-level tracker fields. True strokes gained requires shot distances, lies, and first-putt distance.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Focus Areas</p>
+      <h2 class="section-title">Improvement Priorities</h2>
+      <div class="priority-list" id="priorityList"></div>
+    </section>
+
+    <div class="gallery" aria-label="Miki golf photo gallery">
+      <img src="assets/miki-golf-2.png" alt="Miki golf page photo">
+      <img src="assets/miki-golf-3.png" alt="Miki golf page photo">
+      <img src="assets/miki-golf-5.png" alt="Miki golf page photo">
+      <img src="assets/miki-golf-6.png" alt="Miki golf page photo">
+      <img src="assets/miki-golf-7.png" alt="Miki golf page photo">
+    </div>
+
+    <section class="section">
+      <p class="eyebrow">Season Progress</p>
+      <h2 class="section-title">Trends</h2>
+      <div class="empty-trend" id="trendPanel"></div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="data/miki-golf-data.js"></script>
+  <script>
+    const data = window.mikiGolfData || {};
+    const latest = data.latestRound || {};
+
+    document.documentElement.style.setProperty("--hero-image", "url('assets/miki-golf-1.png')");
+    document.getElementById("sampleBadge").textContent = data.sample ? data.sample.label : "No data";
+    document.getElementById("heroScore").textContent = latest.score || "--";
+    document.getElementById("heroRound").textContent = latest.course ? `${latest.score} at ${latest.course}` : "No tracked rounds yet";
+    document.getElementById("heroDetails").textContent = latest.course
+      ? `${latest.tee || ""} tees - ${latest.dateDisplay || latest.date} - Differential ${fmt(latest.differential)}`
+      : "Add a tracked round to populate the dashboard.";
+
+    renderKpis();
+    renderRound();
+    renderScoring();
+    renderPerformance();
+    renderStrokesGained();
+    renderRecommendations();
+    renderTrends();
+    renderFooter();
+
+    function renderKpis() {
+      const performance = data.performance || {};
+      const fairways = performance.fairways || {};
+      const gir = performance.gir || {};
+      const putting = performance.putting || {};
+      const handicap = data.handicap || {};
+      const kpis = [
+        ["Score", latest.score || "--", latest.toParLabel || ""],
+        ["To Par", latest.toParLabel || "--", ""],
+        ["Differential", fmt(latest.differential), ""],
+        ["Putts", putting.total || latest.putts || "--", `${fmt(putting.perRound)} / round`],
+        ["Fairways", pct(fairways.percent), `${fairways.hit || 0}/${fairways.total || 0}`],
+        ["GIR", pct(gir.percent), `${gir.hit || 0}/${gir.total || 0}`],
+        ["Handicap Index", handicap.label || "Pending GHIN sync", ""],
+      ];
+      document.getElementById("kpiGrid").innerHTML = kpis.map(([label, value, sub]) => `
+        <div class="kpi">
+          <span class="kpi-value">${escapeHtml(value)}</span>
+          <span class="kpi-label">${escapeHtml(label)}</span>
+          ${sub ? `<span class="kpi-label">${escapeHtml(sub)}</span>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function renderRound() {
+      const holeScores = latest.holeScores || [];
+      document.getElementById("roundPanel").innerHTML = `
+        <div class="round-header">
+          <div>
+            <h3>${escapeHtml(latest.course || "No round available")}</h3>
+            <div>${escapeHtml(latest.dateDisplay || "")}</div>
+          </div>
+          <span class="tee-badge">${escapeHtml(latest.tee || "")}</span>
+        </div>
+        <div class="card-pad">
+          <dl class="detail-list">
+            ${detail("Rating / Slope", latest.rating ? `${latest.rating} / ${latest.slope}` : "No data")}
+            ${detail("Score", latest.score ? `${latest.score} (${latest.toParLabel})` : "No data")}
+            ${detail("Putts", latest.putts || "No data")}
+            ${detail("Fairways", `${latest.fairwaysHit || 0}/${latest.fairwaysTotal || 0}`)}
+            ${detail("GIR", `${latest.gir || 0}/${latest.girTotal || 0}`)}
+          </dl>
+          <div class="scorecard">
+            ${holeScores.map((hole) => `
+              <div class="hole-chip" title="${escapeHtml(hole.result)}">
+                <strong>${escapeHtml(hole.hole)}</strong>
+                <span>${escapeHtml(hole.score)}</span>
+                <small>par ${escapeHtml(hole.par)}</small>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderScoring() {
+      const distribution = data.scoringDistribution || [];
+      document.getElementById("scoringBars").innerHTML = distribution.map((item) => bar(item.label, `${item.count} holes - ${pct(item.percent)}`, item.percent, item.color)).join("");
+      const shortGame = (data.performance && data.performance.shortGame) || {};
+      const putting = (data.performance && data.performance.putting) || {};
+      document.getElementById("shortGameStats").innerHTML = [
+        ["One-putts", putting.onePutts || 0],
+        ["Two-putts", putting.twoPutts || 0],
+        ["Three-putts", putting.threePutts || 0],
+        ["Scrambling", `${shortGame.scrambling || 0}/${shortGame.scramblingAttempts || 0}`],
+        ["Sand saves", `${shortGame.sandSaves || 0}/${shortGame.sandAttempts || 0}`],
+        ["Penalties", shortGame.penalties || 0],
+      ].map(([label, value]) => `<div class="mini-stat"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("");
+    }
+
+    function renderPerformance() {
+      const fairways = (data.performance && data.performance.fairways) || {};
+      const gir = (data.performance && data.performance.gir) || {};
+      document.getElementById("fairwaySummary").textContent = `${fairways.hit || 0} of ${fairways.total || 0} fairways. Misses: ${fairways.missLeft || 0} left, ${fairways.missRight || 0} right.`;
+      document.getElementById("girSummary").textContent = `${gir.hit || 0} of ${gir.total || 0} greens. Miss pattern: ${gir.missShort || 0} short, ${gir.missRight || 0} right, ${gir.missLong || 0} long, ${gir.missLeft || 0} left.`;
+      document.getElementById("fairwayBars").innerHTML = [
+        bar("Hit", `${fairways.hit || 0}/${fairways.total || 0}`, fairways.percent || 0, "var(--green)"),
+        bar("Miss left", fairways.missLeft || 0, ratioPct(fairways.missLeft, fairways.total), "var(--coral)"),
+        bar("Miss right", fairways.missRight || 0, ratioPct(fairways.missRight, fairways.total), "var(--sky)"),
+      ].join("");
+      document.getElementById("girBars").innerHTML = [
+        bar("GIR", `${gir.hit || 0}/${gir.total || 0}`, gir.percent || 0, "var(--green)"),
+        bar("Short", gir.missShort || 0, ratioPct(gir.missShort, gir.total), "var(--coral)"),
+        bar("Right", gir.missRight || 0, ratioPct(gir.missRight, gir.total), "var(--sky)"),
+        bar("Long", gir.missLong || 0, ratioPct(gir.missLong, gir.total), "var(--sand)"),
+        bar("Left", gir.missLeft || 0, ratioPct(gir.missLeft, gir.total), "#9b72aa"),
+      ].join("");
+    }
+
+    function renderStrokesGained() {
+      document.getElementById("sgGrid").innerHTML = (data.strokesGained || []).map((item) => `
+        <article class="sg-card">
+          <h3>${escapeHtml(item.name)}</h3>
+          <div class="sg-value">${escapeHtml(item.label)}</div>
+          <div class="sg-track"><div class="sg-fill" style="--pct:${Number(item.barPct || 0)}%"></div></div>
+          <p>${escapeHtml(item.primary || "")}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderRecommendations() {
+      document.getElementById("priorityList").innerHTML = (data.recommendations || []).map((item, index) => `
+        <article class="priority">
+          <div class="priority-num">${String(index + 1).padStart(2, "0")}</div>
+          <div>
+            <span class="priority-pill">${escapeHtml(item.priority)}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p class="muted">${escapeHtml(item.detail)}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderTrends() {
+      const trends = data.trends || {};
+      document.getElementById("trendPanel").innerHTML = trends.ready
+        ? `<h3>Trend baseline is ready</h3><p class="muted">Recent rounds are now available for score, differential, fairway, GIR, and putting trend charts.</p>`
+        : `<h3>${escapeHtml(trends.message || "Trend lines appear after 3+ rounds.")}</h3><p class="muted">Score trajectory, differential movement, fairway/GIR trends, putt averages, and strokes-gained trends will populate as rounds are logged.</p>`;
+    }
+
+    function renderFooter() {
+      const sample = data.sample || {};
+      document.getElementById("footer").textContent = `Miki Golf - ${data.source || "Caddie golf tracker"} - Updated ${data.displayUpdated || ""} - ${sample.label || ""}`;
+    }
+
+    function detail(label, value) {
+      return `<div class="detail-row"><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`;
+    }
+
+    function bar(label, value, pctValue, color) {
+      const width = Math.max(0, Math.min(100, Number(pctValue) || 0));
+      return `
+        <div>
+          <div class="bar-label"><strong>${escapeHtml(label)}</strong><span>${escapeHtml(value)}</span></div>
+          <div class="bar-track"><div class="bar-fill" style="--pct:${width}%; --color:${color}"></div></div>
+        </div>
+      `;
+    }
+
+    function ratioPct(count, total) {
+      if (!total) return 0;
+      return Number(count || 0) / Number(total) * 100;
+    }
+
+    function pct(value) {
+      return `${fmt(value)}%`;
+    }
+
+    function fmt(value) {
+      if (value === null || value === undefined || value === "") return "No data";
+      if (Number.isFinite(Number(value))) return String(value);
+      return String(value);
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>
