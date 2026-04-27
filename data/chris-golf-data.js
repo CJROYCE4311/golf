@@ -1,6 +1,6 @@
 window.chrisGolfData = {
-  "displayUpdated": "April 27, 2026",
-  "generatedDate": "2026-04-27",
+  "displayUpdated": "April 26, 2026",
+  "generatedDate": "2026-04-26",
   "handicap": {
     "index": 13.2,
     "label": "13.2",
