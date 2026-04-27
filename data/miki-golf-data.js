@@ -1,6 +1,6 @@
 window.mikiGolfData = {
-  "displayUpdated": "April 26, 2026",
-  "generatedDate": "2026-04-26",
+  "displayUpdated": "April 27, 2026",
+  "generatedDate": "2026-04-27",
   "handicap": {
     "index": null,
     "label": "Pending GHIN sync",
