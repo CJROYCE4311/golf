@@ -1,30 +1,30 @@
 window.chrisGolfData = {
-  "displayUpdated": "April 27, 2026",
-  "generatedDate": "2026-04-27",
+  "displayUpdated": "April 28, 2026",
+  "generatedDate": "2026-04-28",
   "handicap": {
     "index": 13.2,
     "label": "13.2",
-    "latestDifferential": 15.0,
-    "method": "Local estimate from lowest 4 of 13 available differentials."
+    "latestDifferential": 14.1,
+    "method": "Local estimate from lowest 4 of 14 available differentials."
   },
   "latestRound": {
     "course": "Sterling Grove Golf & Country Club",
-    "date": "2026-04-26",
-    "dateDisplay": "April 26, 2026",
-    "differential": 15.0,
-    "fairwaysHit": 10,
-    "fairwaysPct": 71.4,
+    "date": "2026-04-28",
+    "dateDisplay": "April 28, 2026",
+    "differential": 14.1,
+    "fairwaysHit": 6,
+    "fairwaysPct": 42.9,
     "fairwaysTotal": 14,
-    "gir": 5,
-    "girPct": 27.8,
+    "gir": 6,
+    "girPct": 33.3,
     "girTotal": 18,
     "holeScores": [
       {
         "hole": 1,
         "par": 4,
-        "result": "Double",
-        "score": 6,
-        "toPar": 2
+        "result": "Triple+",
+        "score": 7,
+        "toPar": 3
       },
       {
         "hole": 2,
@@ -43,9 +43,9 @@ window.chrisGolfData = {
       {
         "hole": 4,
         "par": 5,
-        "result": "Double",
-        "score": 7,
-        "toPar": 2
+        "result": "Par",
+        "score": 5,
+        "toPar": 0
       },
       {
         "hole": 5,
@@ -57,30 +57,30 @@ window.chrisGolfData = {
       {
         "hole": 6,
         "par": 4,
-        "result": "Par",
-        "score": 4,
-        "toPar": 0
-      },
-      {
-        "hole": 7,
-        "par": 3,
-        "result": "Double",
-        "score": 5,
-        "toPar": 2
-      },
-      {
-        "hole": 8,
-        "par": 4,
         "result": "Bogey",
         "score": 5,
         "toPar": 1
       },
       {
+        "hole": 7,
+        "par": 3,
+        "result": "Par",
+        "score": 3,
+        "toPar": 0
+      },
+      {
+        "hole": 8,
+        "par": 4,
+        "result": "Par",
+        "score": 4,
+        "toPar": 0
+      },
+      {
         "hole": 9,
         "par": 5,
-        "result": "Double",
-        "score": 7,
-        "toPar": 2
+        "result": "Par",
+        "score": 5,
+        "toPar": 0
       },
       {
         "hole": 10,
@@ -92,23 +92,23 @@ window.chrisGolfData = {
       {
         "hole": 11,
         "par": 5,
-        "result": "Par",
-        "score": 5,
-        "toPar": 0
+        "result": "Bogey",
+        "score": 6,
+        "toPar": 1
       },
       {
         "hole": 12,
         "par": 4,
-        "result": "Par",
-        "score": 4,
-        "toPar": 0
+        "result": "Double",
+        "score": 6,
+        "toPar": 2
       },
       {
         "hole": 13,
         "par": 3,
-        "result": "Bogey",
-        "score": 4,
-        "toPar": 1
+        "result": "Double",
+        "score": 5,
+        "toPar": 2
       },
       {
         "hole": 14,
@@ -120,9 +120,9 @@ window.chrisGolfData = {
       {
         "hole": 15,
         "par": 4,
-        "result": "Bogey",
-        "score": 5,
-        "toPar": 1
+        "result": "Par",
+        "score": 4,
+        "toPar": 0
       },
       {
         "hole": 16,
@@ -141,64 +141,220 @@ window.chrisGolfData = {
       {
         "hole": 18,
         "par": 5,
-        "result": "Par",
-        "score": 5,
-        "toPar": 0
+        "result": "Bogey",
+        "score": 6,
+        "toPar": 1
       }
     ],
     "par": 72,
     "putts": 34,
     "rating": 70.5,
-    "score": 87,
+    "score": 86,
     "scoreType": "H",
     "scoring": {
       "birdies": 0,
       "bogeys": 7,
-      "doubles": 4,
-      "pars": 7,
-      "triplePlus": 0
+      "doubles": 2,
+      "pars": 8,
+      "triplePlus": 1
     },
     "slope": 124,
     "tee": "Blue",
-    "toPar": 15,
-    "toParLabel": "+15"
+    "toPar": 14,
+    "toParLabel": "+14"
   },
   "performance": {
     "fairways": {
       "hit": 69,
-      "missLeft": 40,
-      "missOther": 6,
-      "missRight": 24,
+      "missLeft": 41,
+      "missOther": 7,
+      "missRight": 22,
       "percent": 49.6,
       "total": 139
     },
     "gir": {
-      "hit": 44,
-      "missLeft": 23,
-      "missLong": 18,
-      "missRight": 46,
-      "missShort": 46,
-      "percent": 24.4,
+      "hit": 43,
+      "missLeft": 24,
+      "missLong": 19,
+      "missRight": 42,
+      "missShort": 47,
+      "percent": 23.9,
       "total": 180
     },
     "putting": {
       "onePutts": 44,
-      "perRound": 33.6,
-      "threePutts": 22,
-      "total": 336,
-      "twoPutts": 113
+      "perRound": 33.5,
+      "threePutts": 21,
+      "total": 335,
+      "twoPutts": 114
     },
     "shortGame": {
       "bunkers": 32,
       "penalties": 13,
-      "sandAttempts": 20,
-      "sandSaves": 0,
-      "scrambling": 28,
-      "scramblingAttempts": 136
+      "sandAttempts": 19,
+      "sandSaves": 1,
+      "scrambling": 30,
+      "scramblingAttempts": 137
     }
   },
   "player": "Chris Royce",
   "recentRounds": [
+    {
+      "course": "Sterling Grove Golf & Country Club",
+      "date": "2026-04-28",
+      "dateDisplay": "April 28, 2026",
+      "differential": 14.1,
+      "fairwaysHit": 6,
+      "fairwaysPct": 42.9,
+      "fairwaysTotal": 14,
+      "gir": 6,
+      "girPct": 33.3,
+      "girTotal": 18,
+      "holeScores": [
+        {
+          "hole": 1,
+          "par": 4,
+          "result": "Triple+",
+          "score": 7,
+          "toPar": 3
+        },
+        {
+          "hole": 2,
+          "par": 4,
+          "result": "Par",
+          "score": 4,
+          "toPar": 0
+        },
+        {
+          "hole": 3,
+          "par": 3,
+          "result": "Bogey",
+          "score": 4,
+          "toPar": 1
+        },
+        {
+          "hole": 4,
+          "par": 5,
+          "result": "Par",
+          "score": 5,
+          "toPar": 0
+        },
+        {
+          "hole": 5,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 6,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 7,
+          "par": 3,
+          "result": "Par",
+          "score": 3,
+          "toPar": 0
+        },
+        {
+          "hole": 8,
+          "par": 4,
+          "result": "Par",
+          "score": 4,
+          "toPar": 0
+        },
+        {
+          "hole": 9,
+          "par": 5,
+          "result": "Par",
+          "score": 5,
+          "toPar": 0
+        },
+        {
+          "hole": 10,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 11,
+          "par": 5,
+          "result": "Bogey",
+          "score": 6,
+          "toPar": 1
+        },
+        {
+          "hole": 12,
+          "par": 4,
+          "result": "Double",
+          "score": 6,
+          "toPar": 2
+        },
+        {
+          "hole": 13,
+          "par": 3,
+          "result": "Double",
+          "score": 5,
+          "toPar": 2
+        },
+        {
+          "hole": 14,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 15,
+          "par": 4,
+          "result": "Par",
+          "score": 4,
+          "toPar": 0
+        },
+        {
+          "hole": 16,
+          "par": 4,
+          "result": "Par",
+          "score": 4,
+          "toPar": 0
+        },
+        {
+          "hole": 17,
+          "par": 3,
+          "result": "Par",
+          "score": 3,
+          "toPar": 0
+        },
+        {
+          "hole": 18,
+          "par": 5,
+          "result": "Bogey",
+          "score": 6,
+          "toPar": 1
+        }
+      ],
+      "par": 72,
+      "putts": 34,
+      "rating": 70.5,
+      "score": 86,
+      "scoreType": "H",
+      "scoring": {
+        "birdies": 0,
+        "bogeys": 7,
+        "doubles": 2,
+        "pars": 8,
+        "triplePlus": 1
+      },
+      "slope": 124,
+      "tee": "Blue",
+      "toPar": 14,
+      "toParLabel": "+14"
+    },
     {
       "course": "Sterling Grove Golf & Country Club",
       "date": "2026-04-26",
@@ -822,177 +978,21 @@ window.chrisGolfData = {
       "tee": "Blue",
       "toPar": 18,
       "toParLabel": "+18"
-    },
-    {
-      "course": "Sterling Grove Golf & Country Club",
-      "date": "2026-04-14",
-      "dateDisplay": "April 14, 2026",
-      "differential": 12.3,
-      "fairwaysHit": 11,
-      "fairwaysPct": 78.6,
-      "fairwaysTotal": 14,
-      "gir": 7,
-      "girPct": 38.9,
-      "girTotal": 18,
-      "holeScores": [
-        {
-          "hole": 1,
-          "par": 4,
-          "result": "Par",
-          "score": 4,
-          "toPar": 0
-        },
-        {
-          "hole": 2,
-          "par": 4,
-          "result": "Birdie",
-          "score": 3,
-          "toPar": -1
-        },
-        {
-          "hole": 3,
-          "par": 3,
-          "result": "Double",
-          "score": 5,
-          "toPar": 2
-        },
-        {
-          "hole": 4,
-          "par": 5,
-          "result": "Birdie",
-          "score": 4,
-          "toPar": -1
-        },
-        {
-          "hole": 5,
-          "par": 4,
-          "result": "Double",
-          "score": 6,
-          "toPar": 2
-        },
-        {
-          "hole": 6,
-          "par": 4,
-          "result": "Double",
-          "score": 6,
-          "toPar": 2
-        },
-        {
-          "hole": 7,
-          "par": 3,
-          "result": "Triple+",
-          "score": 6,
-          "toPar": 3
-        },
-        {
-          "hole": 8,
-          "par": 4,
-          "result": "Par",
-          "score": 4,
-          "toPar": 0
-        },
-        {
-          "hole": 9,
-          "par": 5,
-          "result": "Par",
-          "score": 5,
-          "toPar": 0
-        },
-        {
-          "hole": 10,
-          "par": 4,
-          "result": "Par",
-          "score": 4,
-          "toPar": 0
-        },
-        {
-          "hole": 11,
-          "par": 5,
-          "result": "Par",
-          "score": 5,
-          "toPar": 0
-        },
-        {
-          "hole": 12,
-          "par": 4,
-          "result": "Bogey",
-          "score": 5,
-          "toPar": 1
-        },
-        {
-          "hole": 13,
-          "par": 3,
-          "result": "Par",
-          "score": 3,
-          "toPar": 0
-        },
-        {
-          "hole": 14,
-          "par": 4,
-          "result": "Bogey",
-          "score": 5,
-          "toPar": 1
-        },
-        {
-          "hole": 15,
-          "par": 4,
-          "result": "Bogey",
-          "score": 5,
-          "toPar": 1
-        },
-        {
-          "hole": 16,
-          "par": 4,
-          "result": "Par",
-          "score": 4,
-          "toPar": 0
-        },
-        {
-          "hole": 17,
-          "par": 3,
-          "result": "Bogey",
-          "score": 4,
-          "toPar": 1
-        },
-        {
-          "hole": 18,
-          "par": 5,
-          "result": "Bogey",
-          "score": 6,
-          "toPar": 1
-        }
-      ],
-      "par": 72,
-      "putts": 33,
-      "rating": 70.5,
-      "score": 84,
-      "scoreType": "H",
-      "scoring": {
-        "birdies": 2,
-        "bogeys": 5,
-        "doubles": 3,
-        "pars": 7,
-        "triplePlus": 1
-      },
-      "slope": 124,
-      "tee": "Blue",
-      "toPar": 12,
-      "toParLabel": "+12"
     }
   ],
   "recommendations": [
     {
-      "detail": "46 GIR misses were short. Take enough club, bias targets toward center green, and avoid front hazards.",
+      "detail": "47 GIR misses were short. Take enough club, bias targets toward center green, and avoid front hazards.",
       "priority": "High Priority",
       "title": "Approach distance control"
     },
     {
-      "detail": "336 total putts with 22 three-putts. Prioritize long-putt speed control and tap-in range.",
+      "detail": "335 total putts with 21 three-putts. Prioritize long-putt speed control and tap-in range.",
       "priority": "High Priority",
       "title": "Lag putting"
     },
     {
-      "detail": "Scrambling is 28/136. Track first-chip proximity and build one reliable stock pitch or chip.",
+      "detail": "Scrambling is 30/137. Track first-chip proximity and build one reliable stock pitch or chip.",
       "priority": "High Priority",
       "title": "Short game proximity"
     },
@@ -1003,39 +1003,39 @@ window.chrisGolfData = {
     }
   ],
   "sample": {
-    "holes": 774,
-    "label": "43 tracked rounds, 774 holes",
-    "rounds": 43,
+    "holes": 792,
+    "label": "44 tracked rounds, 792 holes",
+    "rounds": 44,
     "trendReady": true
   },
   "scoringDistribution": [
     {
       "color": "#d4826a",
-      "count": 4,
+      "count": 3,
       "key": "birdies",
       "label": "Birdies",
-      "percent": 2.2
+      "percent": 1.7
     },
     {
       "color": "#4f93a7",
-      "count": 56,
+      "count": 59,
       "key": "pars",
       "label": "Pars",
-      "percent": 31.1
+      "percent": 32.8
     },
     {
       "color": "#3a8750",
-      "count": 79,
+      "count": 80,
       "key": "bogeys",
       "label": "Bogeys",
-      "percent": 43.9
+      "percent": 44.4
     },
     {
       "color": "#335d6e",
-      "count": 32,
+      "count": 29,
       "key": "doubles",
       "label": "Doubles",
-      "percent": 17.8
+      "percent": 16.1
     },
     {
       "color": "#6b7280",
@@ -1049,49 +1049,41 @@ window.chrisGolfData = {
   "strokesGained": [
     {
       "abbr": "OTT",
-      "barPct": 72.8,
-      "label": "-2.38",
+      "barPct": 72.5,
+      "label": "-2.40",
       "name": "Off the tee",
       "primary": "13 penalty holes",
-      "value": -2.38
+      "value": -2.4
     },
     {
       "abbr": "APP",
       "barPct": 100.0,
-      "label": "-3.27",
+      "label": "-3.31",
       "name": "Approach",
-      "primary": "44/180, 24.4% GIR",
-      "value": -3.27
+      "primary": "43/180, 23.9% GIR",
+      "value": -3.31
     },
     {
       "abbr": "ATG",
-      "barPct": 94.2,
-      "label": "-3.08",
+      "barPct": 90.6,
+      "label": "-3.00",
       "name": "Around green",
-      "primary": "28/136, 20.6% scrambling",
-      "value": -3.08
+      "primary": "30/137, 21.9% scrambling",
+      "value": -3.0
     },
     {
       "abbr": "PUTT",
-      "barPct": 60.6,
-      "label": "-1.98",
+      "barPct": 56.8,
+      "label": "-1.88",
       "name": "Putting",
-      "primary": "33.6 putts/round",
-      "value": -1.98
+      "primary": "33.5 putts/round",
+      "value": -1.88
     }
   ],
   "trends": {
     "message": "Trend lines appear after 3+ rounds.",
     "ready": true,
     "rounds": [
-      {
-        "date": "2026-04-05",
-        "differential": 17.8,
-        "fairwaysPct": 42.9,
-        "girPct": 38.9,
-        "putts": 35,
-        "score": 90
-      },
       {
         "date": "2026-04-06",
         "differential": 17.8,
@@ -1163,6 +1155,14 @@ window.chrisGolfData = {
         "girPct": 27.8,
         "putts": 34,
         "score": 87
+      },
+      {
+        "date": "2026-04-28",
+        "differential": 14.1,
+        "fairwaysPct": 42.9,
+        "girPct": 33.3,
+        "putts": 34,
+        "score": 86
       }
     ]
   }
