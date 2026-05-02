@@ -1,37 +1,37 @@
 window.mikiGolfData = {
-  "displayUpdated": "April 28, 2026",
-  "generatedDate": "2026-04-28",
+  "displayUpdated": "May 1, 2026",
+  "generatedDate": "2026-05-01",
   "handicap": {
-    "index": null,
-    "label": "Pending GHIN sync",
-    "latestDifferential": 12.2,
-    "method": "At least 3 local differentials are needed for an estimate."
+    "index": 11.2,
+    "label": "11.2",
+    "latestDifferential": 14.3,
+    "method": "Local estimate from lowest 1 of 4 available differentials with -1.0 adjustment."
   },
   "latestRound": {
     "course": "Sterling Grove Golf & Country Club",
-    "date": "2026-04-27",
-    "dateDisplay": "April 27, 2026",
-    "differential": 12.2,
-    "fairwaysHit": 2,
-    "fairwaysPct": 28.6,
+    "date": "2026-05-01",
+    "dateDisplay": "May 1, 2026",
+    "differential": 14.3,
+    "fairwaysHit": 3,
+    "fairwaysPct": 42.9,
     "fairwaysTotal": 7,
-    "gir": 2,
-    "girPct": 22.2,
+    "gir": 1,
+    "girPct": 11.1,
     "girTotal": 9,
     "holeScores": [
       {
         "hole": 1,
         "par": 4,
-        "result": "Bogey",
-        "score": 5,
-        "toPar": 1
+        "result": "Double",
+        "score": 6,
+        "toPar": 2
       },
       {
         "hole": 2,
         "par": 4,
-        "result": "Double",
-        "score": 6,
-        "toPar": 2
+        "result": "Bogey",
+        "score": 5,
+        "toPar": 1
       },
       {
         "hole": 3,
@@ -43,99 +43,285 @@ window.mikiGolfData = {
       {
         "hole": 4,
         "par": 5,
-        "result": "Bogey",
-        "score": 6,
-        "toPar": 1
+        "result": "Triple+",
+        "score": 8,
+        "toPar": 3
       },
       {
         "hole": 5,
-        "par": 4,
-        "result": "Double",
-        "score": 6,
-        "toPar": 2
-      },
-      {
-        "hole": 6,
-        "par": 4,
-        "result": "Par",
-        "score": 4,
-        "toPar": 0
-      },
-      {
-        "hole": 7,
-        "par": 3,
-        "result": "Par",
-        "score": 3,
-        "toPar": 0
-      },
-      {
-        "hole": 8,
         "par": 4,
         "result": "Bogey",
         "score": 5,
         "toPar": 1
       },
       {
+        "hole": 6,
+        "par": 4,
+        "result": "Birdie",
+        "score": 3,
+        "toPar": -1
+      },
+      {
+        "hole": 7,
+        "par": 3,
+        "result": "Bogey",
+        "score": 4,
+        "toPar": 1
+      },
+      {
+        "hole": 8,
+        "par": 4,
+        "result": "Triple+",
+        "score": 7,
+        "toPar": 3
+      },
+      {
         "hole": 9,
         "par": 5,
-        "result": "Double",
-        "score": 7,
-        "toPar": 2
+        "result": "Bogey",
+        "score": 6,
+        "toPar": 1
       }
     ],
     "par": 36,
-    "putts": 19,
+    "putts": 17,
     "rating": 34.0,
-    "score": 46,
+    "score": 48,
     "scoreType": "H",
     "scoring": {
-      "birdies": 0,
-      "bogeys": 4,
-      "doubles": 3,
-      "pars": 2,
-      "triplePlus": 0
+      "birdies": 1,
+      "bogeys": 5,
+      "doubles": 1,
+      "pars": 0,
+      "triplePlus": 2
     },
     "slope": 111,
     "tee": "Red",
-    "toPar": 10,
-    "toParLabel": "+10"
+    "toPar": 12,
+    "toParLabel": "+12"
   },
   "performance": {
     "fairways": {
-      "hit": 11,
-      "missLeft": 5,
+      "hit": 16,
+      "missLeft": 11,
       "missOther": 0,
-      "missRight": 5,
-      "percent": 52.4,
-      "total": 21
+      "missRight": 8,
+      "percent": 45.7,
+      "total": 35
     },
     "gir": {
-      "hit": 5,
-      "missLeft": 1,
-      "missLong": 1,
+      "hit": 11,
+      "missLeft": 6,
+      "missLong": 2,
       "missRight": 2,
-      "missShort": 18,
-      "percent": 18.5,
-      "total": 27
+      "missShort": 24,
+      "percent": 24.4,
+      "total": 45
     },
     "putting": {
-      "onePutts": 2,
-      "perRound": 29.0,
-      "threePutts": 6,
-      "total": 58,
-      "twoPutts": 19
+      "onePutts": 4,
+      "perRound": 24.2,
+      "threePutts": 11,
+      "total": 97,
+      "twoPutts": 30
     },
     "shortGame": {
       "bunkers": 1,
-      "penalties": 0,
+      "penalties": 2,
       "sandAttempts": 1,
       "sandSaves": 0,
       "scrambling": 0,
-      "scramblingAttempts": 22
+      "scramblingAttempts": 34
     }
   },
   "player": "Miki Royce",
   "recentRounds": [
+    {
+      "course": "Sterling Grove Golf & Country Club",
+      "date": "2026-05-01",
+      "dateDisplay": "May 1, 2026",
+      "differential": 14.3,
+      "fairwaysHit": 3,
+      "fairwaysPct": 42.9,
+      "fairwaysTotal": 7,
+      "gir": 1,
+      "girPct": 11.1,
+      "girTotal": 9,
+      "holeScores": [
+        {
+          "hole": 1,
+          "par": 4,
+          "result": "Double",
+          "score": 6,
+          "toPar": 2
+        },
+        {
+          "hole": 2,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 3,
+          "par": 3,
+          "result": "Bogey",
+          "score": 4,
+          "toPar": 1
+        },
+        {
+          "hole": 4,
+          "par": 5,
+          "result": "Triple+",
+          "score": 8,
+          "toPar": 3
+        },
+        {
+          "hole": 5,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 6,
+          "par": 4,
+          "result": "Birdie",
+          "score": 3,
+          "toPar": -1
+        },
+        {
+          "hole": 7,
+          "par": 3,
+          "result": "Bogey",
+          "score": 4,
+          "toPar": 1
+        },
+        {
+          "hole": 8,
+          "par": 4,
+          "result": "Triple+",
+          "score": 7,
+          "toPar": 3
+        },
+        {
+          "hole": 9,
+          "par": 5,
+          "result": "Bogey",
+          "score": 6,
+          "toPar": 1
+        }
+      ],
+      "par": 36,
+      "putts": 17,
+      "rating": 34.0,
+      "score": 48,
+      "scoreType": "H",
+      "scoring": {
+        "birdies": 1,
+        "bogeys": 5,
+        "doubles": 1,
+        "pars": 0,
+        "triplePlus": 2
+      },
+      "slope": 111,
+      "tee": "Red",
+      "toPar": 12,
+      "toParLabel": "+12"
+    },
+    {
+      "course": "Sterling Grove Golf & Country Club",
+      "date": "2026-04-29",
+      "dateDisplay": "April 29, 2026",
+      "differential": 12.2,
+      "fairwaysHit": 2,
+      "fairwaysPct": 28.6,
+      "fairwaysTotal": 7,
+      "gir": 5,
+      "girPct": 55.6,
+      "girTotal": 9,
+      "holeScores": [
+        {
+          "hole": 1,
+          "par": 4,
+          "result": "Double",
+          "score": 6,
+          "toPar": 2
+        },
+        {
+          "hole": 2,
+          "par": 4,
+          "result": "Triple+",
+          "score": 7,
+          "toPar": 3
+        },
+        {
+          "hole": 3,
+          "par": 3,
+          "result": "Par",
+          "score": 3,
+          "toPar": 0
+        },
+        {
+          "hole": 4,
+          "par": 5,
+          "result": "Par",
+          "score": 5,
+          "toPar": 0
+        },
+        {
+          "hole": 5,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 6,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 7,
+          "par": 3,
+          "result": "Par",
+          "score": 3,
+          "toPar": 0
+        },
+        {
+          "hole": 8,
+          "par": 4,
+          "result": "Bogey",
+          "score": 5,
+          "toPar": 1
+        },
+        {
+          "hole": 9,
+          "par": 5,
+          "result": "Double",
+          "score": 7,
+          "toPar": 2
+        }
+      ],
+      "par": 36,
+      "putts": 22,
+      "rating": 34.0,
+      "score": 46,
+      "scoreType": "H",
+      "scoring": {
+        "birdies": 0,
+        "bogeys": 3,
+        "doubles": 2,
+        "pars": 3,
+        "triplePlus": 1
+      },
+      "slope": 111,
+      "tee": "Red",
+      "toPar": 10,
+      "toParLabel": "+10"
+    },
     {
       "course": "Sterling Grove Golf & Country Club",
       "date": "2026-04-27",
@@ -388,107 +574,107 @@ window.mikiGolfData = {
   ],
   "recommendations": [
     {
-      "detail": "18 GIR misses were short. Take enough club, bias targets toward center green, and avoid front hazards.",
+      "detail": "24 GIR misses were short. Take enough club, bias targets toward center green, and avoid front hazards.",
       "priority": "High Priority",
       "title": "Approach distance control"
     },
     {
-      "detail": "58 total putts with 6 three-putts. Prioritize long-putt speed control and tap-in range.",
+      "detail": "97 total putts with 11 three-putts. Prioritize long-putt speed control and tap-in range.",
       "priority": "High Priority",
       "title": "Lag putting"
     },
     {
-      "detail": "Scrambling is 0/22. Track first-chip proximity and build one reliable stock pitch or chip.",
+      "detail": "Scrambling is 0/34. Track first-chip proximity and build one reliable stock pitch or chip.",
       "priority": "High Priority",
       "title": "Short game proximity"
     },
     {
-      "detail": "Fairways are 11/21 with 0 penalties. Keep this stable while approach and putting improve.",
+      "detail": "Fairways are 16/35 with 2 penalties. Keep this stable while approach and putting improve.",
       "priority": "Secondary",
       "title": "Tee shots"
     }
   ],
   "sample": {
-    "holes": 27,
-    "label": "2 tracked rounds, 27 holes",
-    "rounds": 2,
-    "trendReady": false
+    "holes": 45,
+    "label": "4 tracked rounds, 45 holes",
+    "rounds": 4,
+    "trendReady": true
   },
   "scoringDistribution": [
     {
       "color": "#d4826a",
-      "count": 2,
+      "count": 3,
       "key": "birdies",
       "label": "Birdies",
-      "percent": 7.4
+      "percent": 6.7
     },
     {
       "color": "#4f93a7",
-      "count": 3,
+      "count": 6,
       "key": "pars",
       "label": "Pars",
-      "percent": 11.1
+      "percent": 13.3
     },
     {
       "color": "#3a8750",
-      "count": 12,
+      "count": 20,
       "key": "bogeys",
       "label": "Bogeys",
       "percent": 44.4
     },
     {
       "color": "#335d6e",
-      "count": 10,
+      "count": 13,
       "key": "doubles",
       "label": "Doubles",
-      "percent": 37.0
+      "percent": 28.9
     },
     {
       "color": "#6b7280",
-      "count": 0,
+      "count": 3,
       "key": "triplePlus",
       "label": "Triple+",
-      "percent": 0.0
+      "percent": 6.7
     }
   ],
   "source": "Caddie golf tracker",
   "strokesGained": [
     {
       "abbr": "OTT",
-      "barPct": 20.3,
-      "label": "-0.60",
+      "barPct": 45.7,
+      "label": "-1.07",
       "name": "Off the tee",
-      "primary": "0 penalty holes",
-      "value": -0.6
+      "primary": "2 penalty holes",
+      "value": -1.07
     },
     {
       "abbr": "APP",
-      "barPct": 100.0,
-      "label": "-2.96",
+      "barPct": 94.4,
+      "label": "-2.21",
       "name": "Approach",
-      "primary": "5/27, 18.5% GIR",
-      "value": -2.96
+      "primary": "11/45, 24.4% GIR",
+      "value": -2.21
     },
     {
       "abbr": "ATG",
-      "barPct": 87.8,
-      "label": "-2.60",
+      "barPct": 83.8,
+      "label": "-1.96",
       "name": "Around green",
-      "primary": "0/22, 0.0% scrambling",
-      "value": -2.6
+      "primary": "0/34, 0.0% scrambling",
+      "value": -1.96
     },
     {
       "abbr": "PUTT",
-      "barPct": 86.1,
-      "label": "-2.55",
+      "barPct": 100.0,
+      "label": "-2.34",
       "name": "Putting",
-      "primary": "29.0 putts/round",
-      "value": -2.55
+      "primary": "24.2 putts/round",
+      "value": -2.34
     }
   ],
   "trends": {
     "message": "Trend lines appear after 3+ rounds.",
-    "ready": false,
+    "ready": true,
     "rounds": [
       {
         "date": "2026-04-26",
@@ -505,6 +691,22 @@ window.mikiGolfData = {
         "girPct": 22.2,
         "putts": 19,
         "score": 46
+      },
+      {
+        "date": "2026-04-29",
+        "differential": 12.2,
+        "fairwaysPct": 28.6,
+        "girPct": 55.6,
+        "putts": 22,
+        "score": 46
+      },
+      {
+        "date": "2026-05-01",
+        "differential": 14.3,
+        "fairwaysPct": 42.9,
+        "girPct": 11.1,
+        "putts": 17,
+        "score": 48
       }
     ]
   }
